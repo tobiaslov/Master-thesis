@@ -69,12 +69,12 @@ random_function <- function (sim,
         #TryCatch starts
         
         #Sampling initial data set
-        #labeled_data <- data_training %>% 
-        #  sample_n(., sample_size, replace = F)
-        
-        #Taking fixed sample
         labeled_data <- data_training %>% 
-          slice(1:sample_size)
+          sample_n(., start_sample, replace = F)
+        
+        #Taking fixed sample - Used for investigating MAD
+        #labeled_data <- data_training %>% 
+        # slice(1:start_sample)
         
         #Remove observations from training data set
         #Creating new object so that data_train does not shrink for each tryCatch
